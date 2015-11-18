@@ -4,55 +4,58 @@
   <link rel='stylesheet' href='style.css'>
 </head>
 <body>
-  <h1>Top Pot Donut Shop Madness</h1>
-  <p>Here is a table of the estimated number of donuts that each Top Pot location
-    would need to make hourly and daily to meet customer demand.</p>
-
-  <table id='donutShopTable'>
-   <thead id='th'>
-    <tr id='hours'>
-      <td>Locations</td>
-      <td>7:00am</td>
-      <td>8:00am</td>
-      <td>9:00am</td>
-      <td>10:00am</td>
-      <td>11:00am</td>
-      <td>12:00pm</td>
-      <td>1:00pm</td>
-      <td>2:00pm</td>
-      <td>3:00pm</td>
-      <td>4:00pm</td>
-      <td>5-6:00pm</td>
-      <td>Daily Totals</td>
-    </tr>
-   </thead>
-   <tbody id='tBody'></tbody>
-  </table>
-
-  <form id='newForm'>
-    <h4>Add a new Top Pot Location</h4>
-    <label>Location:
-    <input type='text' name='location' id='loc'>
-  </label>
-    <br>
-    <br>
-    <label>Minimum Customers Per Hour:
-    <input type='number' name='minCPH' id='min'>
-  </label>
-    <br>
-    <br>
-    <label>Maximum Customers Per Hour:
-    <input type='number' name='maxCPH' id='max'>
-  </label>
-    <br>
-    <br>
-    <label>Average Donuts Purchased Per Customer:
-    <input type='number' name='avgDonPerCust' id='avg'>
-  </label>
-    <br>
-    <br>
-  <button id='submitButton'>Submit</button>
-  </form>
-
+  <header>
+    <h1>Top Pot Donut Shop Madness</h1>
+    <p>Here is a table of the estimated number of donuts that each Top Pot location
+      would need to make hourly and daily to meet customer demand.</p>
+  </header>
+  <article>
+    <table id='donutShopTable'>
+     <thead id='th'>
+      <tr id='hours'>
+        <td>Locations</td>
+        <td>7:00am</td>
+        <td>8:00am</td>
+        <td>9:00am</td>
+        <td>10:00am</td>
+        <td>11:00am</td>
+        <td>12:00pm</td>
+        <td>1:00pm</td>
+        <td>2:00pm</td>
+        <td>3:00pm</td>
+        <td>4:00pm</td>
+        <td>5-6:00pm</td>
+        <td>Daily Totals</td>
+      </tr>
+     </thead>
+     <tbody id='tBody'></tbody>
+    </table>
+</article>
+  <aside>
+    <form id='newForm'>
+      <h4>Add a new Top Pot Location</h4>
+      <label>Location:
+      <input type='text' name='location' id='loc'>
+    </label>
+      <br>
+      <br>
+      <label>Minimum Customers Per Hour:
+      <input type='number' name='minCPH' id='min'>
+    </label>
+      <br>
+      <br>
+      <label>Maximum Customers Per Hour:
+      <input type='number' name='maxCPH' id='max'>
+    </label>
+      <br>
+      <br>
+      <label>Average Donuts Purchased Per Customer:
+      <input type='number' name='avgDonPerCust' id='avg'>
+    </label>
+      <br>
+      <br>
+    <button id='submitButton'>Submit</button>
+    </form>
+  </aside>
   <script src='donut.js'></script>
 </body>

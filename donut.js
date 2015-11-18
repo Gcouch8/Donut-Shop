@@ -1,6 +1,6 @@
 
 
-
+//function constructor for the Donut Shops
 var DonutShop = function(location, data){
   this.locations = location;
   this.minCPH = data.minCPH;
@@ -12,6 +12,7 @@ var DonutShop = function(location, data){
     return Math.floor(Math.random() * (this.maxCPH - this.minCPH) + this.minCPH);
 };
 
+//calculates donuts per hour
   this.donutsHourly = function(){
     for(var i = 0; i < 11; i++){
       var hourly = Math.round(this.avgDonutsPerCust * this.randomCust());
@@ -19,6 +20,8 @@ var DonutShop = function(location, data){
     };
   };
 
+//add donuts per hour to get daily totals
+//switch to forEach or reduce
   this.donutsDaily = function(){
     var total = 0;
     for(var i = 0; i < this.donutsHourlyTotal.length; i++)
@@ -26,11 +29,13 @@ var DonutShop = function(location, data){
     this.donutsDailyTotal.push(total);
   };
 };
+
 //renders each shop to the page.
 DonutShop.prototype.render = function(){
     var tr = document.createElement('tr');
     var tbody = document.getElementById('tBody');
 
+//function to render location to page
   function locations(location){
     var td = document.createElement('td');
     td.innerHTML = location;
@@ -39,6 +44,7 @@ DonutShop.prototype.render = function(){
   };
   locations(this.locations);
 
+//function to render donuts per hour
   function hourlyDonuts(donutsHourlyTotal){
     for(var i =0; i < donutsHourlyTotal.length; i++){
       var td = document.createElement('td');
@@ -48,6 +54,7 @@ DonutShop.prototype.render = function(){
   };
   hourlyDonuts(this.donutsHourlyTotal);
 
+//function to render daily totals
   function dailyDonuts(donutsDailyTotal){
     var td = document.createElement('td');
     td.innerHTML = donutsDailyTotal;
@@ -88,23 +95,27 @@ southLakeUnion.donutsHourly();
 southLakeUnion.donutsDaily();
 southLakeUnion.render();
 
-//events
+//event to submit a new location to the table
 var submitBtn = document.getElementById('submitButton');
 
 submitBtn.addEventListener('click', function(event){
       event.preventDefault();
-var newForm = document.getElementById('newForm');
-var loca = document.getElementById('loc').value;
-var minC = document.getElementById('min').value;
-var maxC = document.getElementById('max').value;
-var avrg = document.getElementById('avg').value;
-      console.log(loca)
+
+    var loca = document.getElementById('loc').value;
+    var minC = document.getElementById('min').value;
+    var maxC = document.getElementById('max').value;
+    var avrg = document.getElementById('avg').value;
+
     var newShop = new DonutShop(loca, {minCPH: Number(minC), maxCPH: Number(maxC), avgDonutsPerCust: Number(avrg)});
 
 
     newShop.donutsHourly();
     newShop.donutsDaily();
     newShop.render();
+
+    //resets the input fields
+    var newForm = document.getElementById('newForm');
+    newForm.reset();
 });
 
 
