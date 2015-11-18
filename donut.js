@@ -90,16 +90,16 @@ southLakeUnion.render();
 
 //events
 var submitBtn = document.getElementById('submitButton');
+
+submitBtn.addEventListener('click', function(event){
+      event.preventDefault();
 var newForm = document.getElementById('newForm');
 var loca = document.getElementById('loc').value;
 var minC = document.getElementById('min').value;
 var maxC = document.getElementById('max').value;
 var avrg = document.getElementById('avg').value;
-
-submitBtn.addEventListener('click', function(event){
-      event.preventDefault();
-
-    var newShop = new DonutShop(event.target.loca, {minCPH: event.target.minC, maxCPH: event.target.maxC, avgDonutsPerCust: event.target.avrg});
+      console.log(loca)
+    var newShop = new DonutShop(loca, {minCPH: Number(minC), maxCPH: Number(maxC), avgDonutsPerCust: Number(avrg)});
 
 
     newShop.donutsHourly();
