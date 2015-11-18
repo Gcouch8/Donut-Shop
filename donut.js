@@ -1,3 +1,6 @@
+
+
+
 var DonutShop = function(location, data){
   this.locations = location;
   this.minCPH = data.minCPH;
@@ -55,6 +58,8 @@ DonutShop.prototype.render = function(){
   dailyDonuts(this.donutsDailyTotal);
 
 };
+
+
 //use objects to store shop data.
 var downtown = new DonutShop('Downtown', {minCPH: 8, maxCPH: 43, avgDonutsPerCust: 4.5});
 var ballard = new DonutShop('Ballard', {minCPH: 8, maxCPH: 58, avgDonutsPerCust: 3.75});
@@ -84,4 +89,22 @@ southLakeUnion.donutsDaily();
 southLakeUnion.render();
 
 //events
+var submitBtn = document.getElementById('submitButton');
+var newForm = document.getElementById('newForm');
+var loca = document.getElementById('loc').value;
+var minC = document.getElementById('min').value;
+var maxC = document.getElementById('max').value;
+var avrg = document.getElementById('avg').value;
+
+submitBtn.addEventListener('click', function(event){
+      event.preventDefault();
+
+    var newShop = new DonutShop(event.target.loca, {minCPH: event.target.minC, maxCPH: event.target.maxC, avgDonutsPerCust: event.target.avrg});
+
+
+    newShop.donutsHourly();
+    newShop.donutsDaily();
+    newShop.render();
+});
+
 
