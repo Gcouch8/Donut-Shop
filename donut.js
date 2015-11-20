@@ -1,5 +1,3 @@
-
-
 //function constructor for the Donut Shops
 var DonutShop = function(location, data){
   this.locations = location;
@@ -20,13 +18,18 @@ var DonutShop = function(location, data){
     };
   };
 
-//add donuts per hour to get daily totals
-//switch to forEach or reduce
+
+//Use reduce to get daily totals
   this.donutsDaily = function(){
-    var total = 0;
-    for(var i = 0; i < this.donutsHourlyTotal.length; i++)
-      total += this.donutsHourlyTotal[i];
+      var total = this.donutsHourlyTotal.reduce(function(total, number){
+      return total + number;
+    });
     this.donutsDailyTotal.push(total);
+    //old way
+    //var total = 0;
+    //for(var i = 0; i < this.donutsHourlyTotal.length; i++)
+      //total += this.donutsHourlyTotal[i];
+    //this.donutsDailyTotal.push(total);
   };
 };
 
@@ -66,7 +69,7 @@ DonutShop.prototype.render = function(){
 
 };
 
-
+//should I store these in an array, and what is the correct syntax for this?
 //use objects to store shop data.
 var downtown = new DonutShop('Downtown', {minCPH: 8, maxCPH: 43, avgDonutsPerCust: 4.5});
 var ballard = new DonutShop('Ballard', {minCPH: 8, maxCPH: 58, avgDonutsPerCust: 3.75});
@@ -100,7 +103,7 @@ var submitBtn = document.getElementById('submitButton');
 
 submitBtn.addEventListener('click', function(event){
       event.preventDefault();
-
+//variables to store input from the submit form
     var loca = document.getElementById('loc').value;
     var minC = document.getElementById('min').value;
     var maxC = document.getElementById('max').value;
@@ -108,7 +111,7 @@ submitBtn.addEventListener('click', function(event){
 
     var newShop = new DonutShop(loca, {minCPH: Number(minC), maxCPH: Number(maxC), avgDonutsPerCust: Number(avrg)});
 
-
+//renders a new shop to the page
     newShop.donutsHourly();
     newShop.donutsDaily();
     newShop.render();
