@@ -1,16 +1,82 @@
 #donutShopTable{
   border:1px solid black;
-  background-color: #DAE5E8;
+  border-collapse: collapse;
+  background-color: #ABCDD9;
+
 }
 
 td{
   border: 1px solid black;
   padding: 3px;
+  background-color: #ffffff;
 }
+.th{
+  background-color: #ABCDD9;
+}
+/*why you no work*/
+tr:nth-child(odd){
+  background: #ABCDD9;
 
+}
 #th{
-
   font-weight: bold;
   font-size: 18px;
 }
 
+body{
+  background-color:
+}
+
+.logo{
+  height:100px;
+  width:100px;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ABCDD9;
+  padding:10px;
+}
+
+.headerTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav{
+  display:inline-block;
+  padding: 5px;
+
+}
+
+.form{
+  padding:20px;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.intro{
+  margin: auto;
+  font-size: 25px;
+}
+
+canvas{
+  width: 1000px;
+  height: 400px;
+}
+
+#donutLegend{
+  padding: 25px;
+}
+
+#donutLegend,ul,li{
+  display:inline;
+  padding: 25px;
+}
