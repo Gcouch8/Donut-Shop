@@ -8,9 +8,9 @@ var DonutShop = function(location, minimum, maximum, average){
   this.donutsDailyTotal = [];
   this.randomCust = function(minimum, maximum){
     return Math.floor(Math.random() * (this.maximum - this.minimum) + this.minimum);
-};
+  };
 
-//calculates donuts per hour
+  //calculates donuts per hour
   this.donutsHourly = function(){
     for(var i = 0; i < 11; i++){
       var hourly = Math.round(this.average * this.randomCust());
@@ -20,25 +20,27 @@ var DonutShop = function(location, minimum, maximum, average){
   this.donutsHourly();
 
 
-//Use reduce to get daily totals
+  //Use reduce to get daily totals
   this.donutsDaily = function(){
       var total = this.donutsHourlyTotal.reduce(function(total, number){
       return total + number;
     });
     this.donutsDailyTotal.push(total);
-    //old way
-    //var total = 0;
-    //for(var i = 0; i < this.donutsHourlyTotal.length; i++)
-      //total += this.donutsHourlyTotal[i];
-    //this.donutsDailyTotal.push(total);
   };
   this.donutsDaily();
 };
 
+// function makeTable() {
+//     var tr = document.createElement('tr');
+//     tr.id = this.locations;
+//     var tbody = document.getElementById('tBody');
+// }
+
 //renders each shop to the page.
 DonutShop.prototype.render = function(){
+
     var tr = document.createElement('tr');
-    tr.id= this.locations;
+    tr.id = this.locations;
     var tbody = document.getElementById('tBody');
 
 //function to render location to page
@@ -62,9 +64,13 @@ DonutShop.prototype.render = function(){
 
 //function to render daily totals
   function dailyDonuts(donutsDailyTotal){
+    var tbody = document.createElement('tbody');
+    var mainTable = document.getElementById('donutShopTable');
+    mainTable.appendChild(tbody);
     var td = document.createElement('td');
     td.innerHTML = donutsDailyTotal;
     tr.appendChild(td);
+    //console.log('---', tbody);
     tbody.appendChild(tr);
 
   };
@@ -72,10 +78,22 @@ DonutShop.prototype.render = function(){
 
 };
 
-// DonutShop.prototype.update = function(){
-//   var update = document.getElementById(donutShopArr[i].locations);
-//   for(var i = 0;  )
-// }
+  // DonutShop.prototype.update = function(){
+  //   var update = document.getElementById(donutShopArr[i].locations);
+  //   var updateTable = document.getElementById(donutShopArr[i].locations);
+  //         for(var i = 0; i=  )
+  //              console.log(updateTable);
+  //               if(updateTable.hasChildNodes){
+  //                 var children = updateTable.childNodes;
+  //                 for (var i = 1; i < 11; i++){
+  //                   children[i].value = this.donutsHourlyTotal[i];
+  //                   this.donutsHourly;
+  //                   this.donutsDaily;
+  //                   console.log(children[i]);
+  //                   console.log(this.donutsHourlyTotal);
+  //                 }
+  //                     children[12].value = this.donutsDailyTotal[i];
+  // }
 
 
 //should I store these in an array, and what is the correct syntax for this?
@@ -94,28 +112,15 @@ donutShopArr.push(wedgewood);
 donutShopArr.push(southLakeUnion);
 console.log(donutShopArr);
 
+console.log('---', donutShopArr);
+
+//render each location
 downtown.render();
 ballard.render();
 capitolHill.render();
 wedgewood.render();
 southLakeUnion.render();
 
-//call the functions for each location.
-/*downtown.donutsHourly();
-downtown.donutsDaily();
-
-ballard.donutsHourly();
-ballard.donutsDaily();
-
-capitolHill.donutsHourly();
-capitolHill.donutsDaily();
-
-wedgewood.donutsHourly();
-wedgewood.donutsDaily();
-
-southLakeUnion.donutsHourly();
-southLakeUnion.donutsDaily();
-*/
 
 //popuate a dropdown list
 function selectLocation(){
@@ -130,67 +135,81 @@ function selectLocation(){
 };
 selectLocation();
 
-    /*var addOrUpdateLocation =*/ function addOrUpdateLocation(event){
-        event.preventDefault();
-      //variables to store input from the submit form
-      var shop = document.getElementById('shop').value;
-      var minC = document.getElementById('minCPH').value;
-      var maxC = document.getElementById('maxCPH').value;
-      var avrg = document.getElementById('avrg').value;
-      console.log(avrg);
-      var update = document.getElementById('update').value;
-      console.log(update);
-      //var selected = update.value;
-      //console.log(selected.value);
-      //var selected = update.options[update.selectedIndex].text;
-       if(update !== 'blank'){
-          for(var i = 0; i < donutShopArr.length; i++){
-              var updateTable = document.getElementById(donutShopArr[i].locations);
-              console.log(updateTable);
-              if(updateTable.hasChildNodes){
-                var children = updateTable.childNodes;
-                for (var i = 1; i < 11; i++){
-                    //children[i].value = this.donutsHourlyTotal[i];
-              this.donutsHourly;
-              this.donutsDaily;
-              donutShopArr[i].minimum = minC;
-              donutShopArr[i].maximum = maxC;
-              donutShopArr[i].average = avrg;
-                    console.log(children[i]);
-                    console.log(this.donutsHourlyTotal);
-                }
-                    children[12].value = this.donutsDailyTotal[i];
+function destroyTable(){
+  var body = document.getElementById('tBody');
+  var thead = document.getElementById('th');
+  var td = document.getElementsByTagName('td');
+    body.remove();
+    // thead.remove();
+};
 
-              }
-            if(update === donutShopArr[i].locations){
-              //console.log(donutShopArr[0]);
+function addOrUpdateLocation(event){
+  event.preventDefault();
+  //variables to store input from the submit form
+  var shop = document.getElementById('shop').value;
+  var minC = document.getElementById('minCPH').value;
+  var maxC = document.getElementById('maxCPH').value;
+  var avrg = document.getElementById('avrg').value;
+  //console.log(avrg);
+  var update = document.getElementById('update').value;
 
-            }
-            //console.log(donutShopArr[i].maximum);
-          }
+  if (update !== 'blank') {
+    console.log('here');
+    // step 1: get the value that we want to use
+    // step 2: find the donut shop that we need to update
+    // step 3: update the value in that donut shop
+    // step 4: destroy the old table in the DOM
+    // step 5: Rerender the entire table
+    for (var i = 0; i < donutShopArr.length; i++) {
+
+      //donutShopArr.forEach(function(DonutShop, i){
+        if (update === donutShopArr[i].locations){
+         donutShopArr[i].minimum = minC;
+         donutShopArr[i].maximum = maxC;
+         donutShopArr[i].average = avrg;
+         console.log(avrg);
+         destroyTable();
+         donutShopArr.splice(i, minC, maxC, avrg);
+         // donutShopArr.forEach(function(donutShop){
+         //  donutShop.donutsHourlyTotal = [];
+         // });
+        console.log(donutShopArr);
+
+         donutShopArr.render();
+
+         this.donutsHourly;
+         this.donutsDaily;
+         console.log(this.donutsHourlyTotal);
+         // newForm.reset();
         }
-      else {
-          var newShop = new DonutShop(shop, Number(minC), Number(maxC), Number(avrg));
-          //console.log(avrg);
-          donutShopArr.push(newShop);
+    }
+    //});
+  }
 
-          //renders a new shop to the page
-          //newShop.donutsHourly();
-          //newShop.donutsDaily();
-          newShop.render();
-          //renderChart();
+  else {
+      var newShop = new DonutShop(shop, Number(minC), Number(maxC), Number(avrg));
+      donutShopArr.push(newShop);
+      //renders a new shop to the page
+      newShop.render();
+      //renderChart();
       }
-
       //resets the input fields
       var newForm = document.getElementById('newForm');
       newForm.reset();
   };
-
-//console.log(donutShopArr);
 //event to submit a new location to the table
 var submitBtn = document.getElementById('submitButton');
 submitBtn.addEventListener('click', addOrUpdateLocation);
 
+//JSON the data!
+// var JSONbtn = document.getElementById('JSONbtn');
+//   JSONbtn.addEventListener('click', function(){
+//   var encoded = JSON.stringify(donutShopArr);
+//   localStorage.setItem('donutShopArr', encoded);
+//   var data = localStorage.getItem('donutShopArr');
+//   var hydrated = JSON.parse(data);
+//   console.log(hydrated);
+// });
 
 /*function renderChart() {
   var elCanvas = document.createElement("canvas");
