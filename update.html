@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Donut Is Coming</title>
+  <link rel='stylesheet' href='update.css'>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class='name'><p>Donut Is Coming</p></div>
+    <nav>
+      <ul class='links'>
+        <li class="navItem"><a href="#">Home</a></li>
+        <li class="navItem"><a href="#">About</a></li>
+        <li class="navItem"><a href="#">Donuts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <div class='wordBody'>
+      <h1 class='surprise'>There be donuts here....</h1>
+    </div>
+
+  <main>
+    <article class='dsTable'>
+      <div id="donutTable"></div>
+    </article>
+    <aside>
+      <form id="updateForm">
+        <fieldset>
+          <legend><!-- <b>Add/Update Location Form</b> --></legend>
+
+          <label for="location">Add a location: </label>
+          <input name="place" type="text">
+
+          <strong>or</strong>
+
+          <select id="selectLocation" class="formBtn" name="locations">
+            <option value="blank" >Select a location to update</option>
+          </select><br><br>
+
+          <label for="minCust">Minimum customers per hour: </label>
+          <input name="minCust" type="number">
+
+          <label for="maxCust">Maximum customers per hour: </label>
+          <input name="maxCust" type="number">
+
+          <label for="averagePur">Average donuts purchased per customer: </label>
+          <input name="averagePur" type="number">
+
+          <button class="formBtn" type="submit">Add/Update Location</button>
+        </fieldset>
+      </form>
+    </aside>
+  </main>
+
+</div>
+  <footer>
+    <address>
+      Donut Is Coming<br>
+      King's Rd<br>
+      Winterfell, WE<br>
+    </address>
+    <address class='footerP'>
+      Donut Is Coming.<br>
+      Ruler of the Glazed Throne.<br>
+      Lord of the Sprinkle Seas.<br>
+    </address>
+  </footer>
+
+    <script type="text/javascript" src="update.js"></script>
+</body>
+</html>

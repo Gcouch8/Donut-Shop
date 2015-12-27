@@ -4,33 +4,84 @@
   <link rel='stylesheet' href='style.css'>
 </head>
 <body>
-  <h1>Top Pot Donut Shop Madness</h1>
-  <p>Here is a table of the estimated number of donuts that each Top Pot location
-    would need to make hourly and daily to meet customer demand.</p>
+  <header>
+    <img class='logo' src='images/billmurray.gif'>
+    <h1 class='headerTitle'>Top Pot Donut Shop Madness</h1>
+    <nav>
+      <ul>
+        <li class='nav'><a href=''>Home</a></li>
+        <li class='nav'><a href=''>About</a></li>
+        <li class='nav'><a href=''>Contact Us</a></li>
+        <li class='nav'><a href='http://giphy.com/gifs/tyler-donut-morgan-4ukqksCY7Y1a/fullscreen'>Mystery</a></li>
+      </ul>
+  </header>
+  <div class='container'>
+    <main>
+      <article class='intro'>
+       <p>Here is a table of the estimated number of donuts that each Top Pot location
+        would need to make hourly and daily to meet customer demand.</p>
+      </article>
+      <article class='table'>
+      <table id='donutShopTable'>
+       <thead id='th'>
+        <tr id='hours'>
+          <td class='th'>Locations</td>
+          <td class='th'>7:00am</td>
+          <td class='th'>8:00am</td>
+          <td class='th'>9:00am</td>
+          <td class='th'>10:00am</td>
+          <td class='th'>11:00am</td>
+          <td class='th'>12:00pm</td>
+          <td class='th'>1:00pm</td>
+          <td class='th'>2:00pm</td>
+          <td class='th'>3:00pm</td>
+          <td class='th'>4:00pm</td>
+          <td class='th'>5:00-6:00pm</td>
+          <td class='th'>Daily Totals</td>
+        </tr>
+       </thead>
+       <tbody id='tBody'></tbody>
+      </table>
+    </article>
+    <article>
+      <div id='donutChart'></div>
+      <div id='donutLegend'></div>
+    </article>
+    <button id='JSONbtn'>JSON!!!</button>
+  </main>
 
-  <table id='donutShopTable'>
-   <thead id='th'>
-    <tr id='hours'>
-      <td>Locations</td>
-      <td>7:00am</td>
-      <td>8:00am</td>
-      <td>9:00am</td>
-      <td>10:00am</td>
-      <td>11:00am</td>
-      <td>12:00pm</td>
-      <td>1:00pm</td>
-      <td>2:00pm</td>
-      <td>3:00pm</td>
-      <td>4:00pm</td>
-      <td>5-6:00pm</td>
-      <td>Daily Totals</td>
-    </tr>
-   </thead>
-   <tbody id='tBody'></tbody>
-  </table>
-  <button id='submitButton'>Submit</button>
-  <button id='clearButton'>Clear</button>
-  <form>
-  </form>
+  <aside class='form'>
+    <form id='newForm' class='form'>
+      <fieldset>
+      <legend class='legend'><b>Add a New Top Pot Location or Update an Existing Location</b> </legend>
+      <label>Location:<br>
+      <input type='text' name='shop' id='shop'>
+    </label>
+      <br>
+    <select id='update' name='locations' class='submitBtn'>
+      <option disabled selected value='blank'>Select Location:</option>
+    </select>
+    <br>
+      <br>
+      <label>Minimum Customers Per Hour:<br>
+      <input type='number' name='minCPH' id='minCPH'>
+    </label>
+      <br>
+      <br>
+      <label>Maximum Customers Per Hour:<br>
+      <input type='number' name='maxCPH' id='maxCPH'>
+    </label>
+      <br>
+      <br>
+      <label>Average Donuts Purchased Per Customer:<br>
+      <input type='number' name='avgDonPerCust' id='avrg'>
+    </label>
+      <br>
+    </fieldset>
+    </form>
+    <button id='submitButton' class='submitBtn'>Add or Update Location</button>
+  </aside>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js'></script>
   <script src='donut.js'></script>
 </body>

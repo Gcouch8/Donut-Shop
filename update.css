@@ -1,0 +1,139 @@
+body{
+   background-image: url('images/backgroundDonut.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+
+}
+
+header{
+  font-size: 25px;
+  font-style: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(196, 195, 175, 0.3);
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  max-height: 85px;
+  margin-bottom: 150px;
+}
+
+.name{
+  padding-right: 25px;
+  margin-right:55px;
+  font-weight: bold;
+  font-size:30px;
+  margin-bottom:100px;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.navItem{
+  display: inline;
+  margin: 10px;
+  margin-right: 25px;
+}
+
+.navItem a{
+  text-decoration: none;
+  color: black;
+}
+
+main{
+  margin-top:25px;
+  margin-bottom: 45px;
+  display: flex;
+  flex-direction: row;
+
+}
+.wordBody{
+  margin-top:100px;
+}
+
+
+/*.dsTable{
+
+}*/
+
+#donutTable{
+  border:1px solid black;
+  border-collapse: collapse;
+  background-color: rgba(196, 195, 175, 0.55);
+  margin: auto;
+  color: #212526;
+
+
+}
+
+td{
+  border: 1px solid black;
+  padding: 3px;
+  background-color: rgba(196, 195, 175, 0.55);
+}
+.th{
+  background-color: rgba(196, 195, 175, 0.55);
+}
+/*why you no work*/
+tr:nth-child(odd){
+  background-color: rgba(196, 195, 175, 0.55);
+
+}
+#th{
+  font-weight: bold;
+  font-size: 18px;
+  background-color: rgba(196, 195, 175, 0.55);
+}
+aside{
+  margin: -25px;
+  margin-left:10px;
+}
+
+#updateForm {
+
+  padding: 25px;
+  margin: auto;
+  width: 200px;
+  height: 350px;
+
+}
+
+fieldset{
+   background-color: rgba(196, 195, 175, 0.70);
+}
+
+footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(196, 195, 175, .3);
+  color: black;
+  font-size: 20px;
+  height:85px;
+  left:0;
+  background-size: cover;
+  width: 100%;
+  margin: 15;
+  padding: 0;
+  position: relative;
+}
+
+address{
+  margin:10px;
+}
+
